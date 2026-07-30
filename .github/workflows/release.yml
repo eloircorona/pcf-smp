@@ -75,23 +75,47 @@ jobs:
                       if 'minecraft =' in line:
                           minecraft_ver = line.split('=')[1].strip().strip('\"').strip(\"'\")
 
-          # Consultar el endpoint de versiones de CurseForge
-          req = urllib.request.Request(
+          # 1. Obtener tipos de versiones para filtrar plataformas incompatibles (Bedrock, Bukkit, Consolas)
+          req_types = urllib.request.Request(
+              'https://minecraft.curseforge.com/api/game/version-types',
+              headers={'X-Api-Token': cf_api_key}
+          )
+          try:
+              with urllib.request.urlopen(req_types) as response:
+                  version_types = json.loads(response.read().decode())
+          except Exception as e:
+              print(f'Error al consultar tipos en CurseForge: {e}', file=os.sys.stderr)
+              version_types = []
+
+          valid_type_ids = set()
+          for vt in version_types:
+              t_id = vt.get('id')
+              t_name = vt.get('name', '').lower()
+              exclude_keywords = ['bukkit', 'spigot', 'paper', 'bedrock', 'pocket', 'xbox', 'ps4', 'switch', 'ios', 'android', 'purpur', 'velocity', 'bungeecord']
+              if not any(k in t_name for k in exclude_keywords):
+                  valid_type_ids.add(t_id)
+
+          # 2. Obtener todas las versiones de juego
+          req_versions = urllib.request.Request(
               'https://minecraft.curseforge.com/api/game/versions',
               headers={'X-Api-Token': cf_api_key}
           )
-
           try:
-              with urllib.request.urlopen(req) as response:
+              with urllib.request.urlopen(req_versions) as response:
                   versions = json.loads(response.read().decode())
           except Exception as e:
-              print(f'Error al consultar CurseForge: {e}', file=os.sys.stderr)
+              print(f'Error al consultar versiones en CurseForge: {e}', file=os.sys.stderr)
               versions = []
 
           mc_id = None
           neoforge_id = None
 
+          # Buscar coincidencia exacta dentro de los tipos válidos para Java Edition
           for v in versions:
+              type_id = v.get('gameVersionTypeID')
+              if type_id not in valid_type_ids:
+                  continue
+
               name = v.get('name', '')
               slug = v.get('slug', '')
               if name == minecraft_ver:
@@ -99,13 +123,19 @@ jobs:
               if slug == 'neoforge' or name == 'NeoForge':
                   neoforge_id = v.get('id')
 
-          # Fallback si no los encuentra de forma exacta
-          for v in versions:
-              name = v.get('name', '').lower()
-              if not mc_id and name == minecraft_ver.lower():
-                  mc_id = v.get('id')
-              if not neoforge_id and name == 'neoforge':
-                  neoforge_id = v.get('id')
+          # Fallbacks por si no se encuentra con coincidencia exacta de tipo
+          if not mc_id:
+              for v in versions:
+                  type_id = v.get('gameVersionTypeID')
+                  if type_id in valid_type_ids and v.get('name', '').lower() == minecraft_ver.lower():
+                      mc_id = v.get('id')
+
+          if not neoforge_id:
+              for v in versions:
+                  if v.get('name', '').lower() == 'neoforge':
+                      neoforge_id = v.get('id')
+
+          print(f'IDs Resolvidos -> MC ({minecraft_ver}): {mc_id}, NeoForge: {neoforge_id}', file=os.sys.stderr)
 
           game_versions = [x for x in [mc_id, neoforge_id] if x is not None]
 
