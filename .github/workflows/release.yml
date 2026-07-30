@@ -50,22 +50,66 @@ jobs:
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_PROJECT_ID: ${{ secrets.CF_PROJECT_ID }}
+          VERSION: ${{ needs.release-please.outputs.version }}
         run: |
-          VERSION="${{ needs.release-please.outputs.version }}"
           ZIP_PATH="${{ steps.zip.outputs.path }}"
 
-          # IDs obtenidos de minecraft.curseforge.com/api/game/versions
-          # MC 1.21.1 (gameVersionTypeID: 77784) → 11779
-          # NeoForge loader (gameVersionTypeID: 68441, slug: modloader) → 10150
+          # Obtener dinámicamente los IDs correspondientes a la versión actual de Minecraft y NeoForge
           METADATA=$(python3 -c "
-          import json, os
+          import json, os, urllib.request
+
+          cf_api_key = os.environ.get('CF_API_KEY')
+          version = os.environ.get('VERSION')
+
+          # Obtener la versión de Minecraft de pack.toml
+          minecraft_ver = '26.2'
+          if os.path.exists('pack.toml'):
+              with open('pack.toml', 'r') as f:
+                  for line in f:
+                      if 'minecraft =' in line:
+                          minecraft_ver = line.split('=')[1].strip().strip('\"').strip(\"'\")
+
+          # Consultar el endpoint de versiones de CurseForge
+          req = urllib.request.Request(
+              'https://minecraft.curseforge.com/api/game/versions',
+              headers={'X-Api-Token': cf_api_key}
+          )
+
+          try:
+              with urllib.request.urlopen(req) as response:
+                  versions = json.loads(response.read().decode())
+          except Exception as e:
+              print(f'Error al consultar CurseForge: {e}', file=os.sys.stderr)
+              versions = []
+
+          mc_id = None
+          neoforge_id = None
+
+          for v in versions:
+              name = v.get('name', '')
+              slug = v.get('slug', '')
+              if name == minecraft_ver:
+                  mc_id = v.get('id')
+              if slug == 'neoforge' or name == 'NeoForge':
+                  neoforge_id = v.get('id')
+
+          # Fallback si no los encuentra de forma exacta
+          for v in versions:
+              name = v.get('name', '').lower()
+              if not mc_id and name == minecraft_ver.lower():
+                  mc_id = v.get('id')
+              if not neoforge_id and name == 'neoforge':
+                  neoforge_id = v.get('id')
+
+          game_versions = [x for x in [mc_id, neoforge_id] if x is not None]
+
           changelog = open('CHANGELOG.md').read() if os.path.exists('CHANGELOG.md') else 'See GitHub releases.'
           meta = {
-            'changelog': changelog,
-            'changelogType': 'markdown',
-            'displayName': 'MSMP v$VERSION',
-            'releaseType': 'release',
-            'gameVersions': [11779, 10150]
+              'changelog': changelog,
+              'changelogType': 'markdown',
+              'displayName': f'PCF-SMP v{version}',
+              'releaseType': 'release',
+              'gameVersions': game_versions
           }
           print(json.dumps(meta))
           ")
