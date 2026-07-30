@@ -1,12 +1,12 @@
 name = "PCF-SMP"
 author = "Eloir Corona"
-version = "0.1.0"
+version = "0.2.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "7b9e2ac63b9005c7526d21c4db5fc2cb34429878830fab1a4aa6e44936a1e1bd"
+hash = "6f78e447aab476482ad560a90e9c0d4e0529d196ee5cdbdf1f27d8f1d6226071"
 
 [versions]
 minecraft = "26.2"

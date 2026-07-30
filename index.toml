@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "CURSEFORGE.md"
+hash = "ae7bdbec447e9236e8face484d916ae70683f22d814ab20dab19f6ae3713ed2c"
+
+[[files]]
 file = "kubejs/assets/msmp/blockstates/mesa_banco.json"
 hash = "35dd24c406dd11f235e3d5c75cf0d9e57cfc451c75e0c797b716038450e26d10"
 
