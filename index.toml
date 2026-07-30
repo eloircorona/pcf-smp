@@ -166,6 +166,11 @@ hash = "15f19049dfa034887f2b402b4da34eecffccb0e70eb9b3a7b112d0d5a4cb8337"
 metafile = true
 
 [[files]]
+file = "mods/lambdynamiclights.pw.toml"
+hash = "a6d53d9a312a3cb6554453eb73ecd152278f7be8d12e9a8db6126b0cef1d2b68"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "6c26b17b40a3d91c5a3043c987aa753faa2d3d13b6c20d319cbb9e04b59169cf"
 metafile = true
@@ -178,6 +183,11 @@ metafile = true
 [[files]]
 file = "mods/macaws-furniture.pw.toml"
 hash = "601775f83729132263bca30d4d41d777439763f0fbc9dd76ac064a9896797603"
+metafile = true
+
+[[files]]
+file = "mods/macaws-lights-and-lamps.pw.toml"
+hash = "bc364231fdfd5db771aa029953c25f4f676017c1791bdabf01ec1fb3de856a1d"
 metafile = true
 
 [[files]]
