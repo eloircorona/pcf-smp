@@ -3,6 +3,12 @@ name: Release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g. 0.2.0)'
+        required: true
+        default: '0.2.0'
 
 permissions:
   contents: write
@@ -23,10 +29,10 @@ jobs:
           release-type: simple
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  # ── 2. Build + publicar en CurseForge cuando se crea una release ─────────────
+  # ── 2. Build + publicar en CurseForge cuando se crea una release o manualmente ──
   publish:
     needs: release-please
-    if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    if: ${{ needs.release-please.outputs.release_created == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -50,7 +56,7 @@ jobs:
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_PROJECT_ID: ${{ secrets.CF_PROJECT_ID }}
-          VERSION: ${{ needs.release-please.outputs.version }}
+          VERSION: ${{ needs.release-please.outputs.version || github.event.inputs.version }}
         run: |
           ZIP_PATH="${{ steps.zip.outputs.path }}"
 
@@ -131,6 +137,7 @@ jobs:
           fi
 
       - name: Attach zip to GitHub Release
+        if: ${{ needs.release-please.outputs.release_created == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
