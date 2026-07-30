@@ -1,0 +1,13 @@
+name = "Macaw's Doors"
+filename = "mcw-doors-1.1.5-mc26.2neoforge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/kNxa8z3e/versions/vg0ghjvB/mcw-doors-1.1.5-mc26.2neoforge.jar"
+hash-format = "sha512"
+hash = "bfabca88b2909de352e3b84d5684a2902ba6dd5fd8b7d65965b1b062618f10304b299e3baff431520bd40195282843b644147402ffe9417c57aab8919e5ce49d"
+
+[update]
+[update.modrinth]
+mod-id = "kNxa8z3e"
+version = "vg0ghjvB"
