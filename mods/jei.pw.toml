@@ -1,0 +1,13 @@
+name = "Just Enough Items (JEI)"
+filename = "jei-26.2-neoforge-30.15.0.115.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/u6dRKJwZ/versions/fMWGM7Ee/jei-26.2-neoforge-30.15.0.115.jar"
+hash-format = "sha512"
+hash = "83af4c8ecb1943cf54c1773b5d651c4cf14e8800d8a0322bbd71ba637f87f3fd145dc7cf39424fa0a4976361650adae4c808832fb32d9dea934f0f1f64c63437"
+
+[update]
+[update.modrinth]
+mod-id = "u6dRKJwZ"
+version = "fMWGM7Ee"
