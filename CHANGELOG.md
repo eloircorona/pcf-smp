@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/eloircorona/pcf-smp/compare/v0.2.0...v0.3.0) (2026-07-30)
+
+
+### Features
+
+* **mods:** add Macaw's Lights & Lamps and LambDynamicLights ([6e8b459](https://github.com/eloircorona/pcf-smp/commit/6e8b4591a6ad09862869d14dcdfe28c977f89f71))
+* **mods:** add Sound Physics, Clumps, DarkCasino, SecurityCraft, Macaw Doors, and Furniture ([d029d2a](https://github.com/eloircorona/pcf-smp/commit/d029d2ad87dd268025e6b795cfbf22fbbf1851d7))
+
 ## [1.1.0](https://github.com/eloircorona/msmp/compare/v1.0.1...v1.1.0) (2026-07-27)
 
 
