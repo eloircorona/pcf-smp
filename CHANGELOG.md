@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.0](https://github.com/eloircorona/msmp/compare/v1.1.0...v1.2.0) (2026-07-30)
+
+
+### Features
+
+* **mods:** add Macaw's Lights & Lamps and LambDynamicLights ([6e8b459](https://github.com/eloircorona/msmp/commit/6e8b459))
+* **mods:** add Sound Physics, Clumps, DarkCasino, SecurityCraft, Macaw Doors, and Furniture ([d029d2a](https://github.com/eloircorona/msmp/commit/d029d2a))
+* **pack:** rename to PCF-SMP, migrate to NeoForge 26.2, and clean/update mods ([dd19688](https://github.com/eloircorona/msmp/commit/dd19688))
+* **kubejs:** add daily quest system (mine/kill/craft, 3/day) ([d9cf415](https://github.com/eloircorona/msmp/commit/d9cf415))
+
+
+### Bug Fixes
+
+* **mods:** mark daily-quests as client-only to fix server crash on KeyMapping ([e66f440](https://github.com/eloircorona/msmp/commit/e66f440))
+* **mods:** replace YUNG's Forge jars with NeoForge versions ([51fc8e7](https://github.com/eloircorona/msmp/commit/51fc8e7))
+* **pack:** exclude .env and .env.example from packwiz index ([87810d0](https://github.com/eloircorona/msmp/commit/87810d0))
+* **server:** switch to TYPE:AUTO + CF_API_KEY for CF modpack install ([630bc67](https://github.com/eloircorona/msmp/commit/630bc67))
+
 ## [1.1.0](https://github.com/eloircorona/msmp/compare/v1.0.1...v1.1.0) (2026-07-27)
 
 
