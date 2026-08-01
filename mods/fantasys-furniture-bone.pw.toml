@@ -1,0 +1,13 @@
+name = "Fantasy's Furniture - Bone"
+filename = "fantasyfurniture_bone-26.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "9967a437ce314066f930a2b84ae7e9966f16f78a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8258983
+project-id = 1209697
