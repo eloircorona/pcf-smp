@@ -165,11 +165,6 @@ hash = "3c4a57dbf11d61816e0f0403d4dc415e56c9d24de6733bc5cfe336b80732ed86"
 metafile = true
 
 [[files]]
-file = "mods/entityculling.pw.toml"
-hash = "e5e870e6af57706933a549c62a60d1caa4fad10636354c48abf183275391e5c4"
-metafile = true
-
-[[files]]
 file = "mods/fantasys-furniture-bone.pw.toml"
 hash = "151748631633fe6e6e0cac55d3a963751f54fbee88918a94daed33cd264b26e1"
 metafile = true
@@ -270,11 +265,6 @@ hash = "207bf6d977898d74aa01cd2d47aaafbc542994790a6e3f4fc814843183e358eb"
 metafile = true
 
 [[files]]
-file = "mods/modernfix.pw.toml"
-hash = "f77005f5ab1ac9093bc780b3eeeece73b7f68acb39ca3edc1bbd16621a879f8d"
-metafile = true
-
-[[files]]
 file = "mods/netherportalfix.pw.toml"
 hash = "34d5b5834cba5780b8bfefa7f79e9f26e0bce2059ce65b8c1ce26330b1459741"
 metafile = true
@@ -348,3 +338,7 @@ metafile = true
 file = "mods/xaeros-world-map.pw.toml"
 hash = "b4f453275202b8766b2996a13f98a481b5eb9b6b9b699bd7d0964b232dc9bd42"
 metafile = true
+
+[[files]]
+file = "overrides/config/openpartiesandclaims-server.toml"
+hash = "2fa55a4e3e5cf8d3469b72ee21026c06ae29e99c94fa574bebac83f252a4a470"

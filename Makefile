@@ -1,9 +1,10 @@
 PACKWIZ    := $(shell which packwiz 2>/dev/null || echo ~/.gvm/pkgsets/go1.23.5/global/bin/packwiz)
+PRISM      := flatpak run org.prismlauncher.PrismLauncher
 VERSION    := $(shell cat version.txt | tr -d '[:space:]')
 PACK_NAME  := $(shell python3 -c "import re; print(re.search(r'name\s*=\s*\"(.+?)\"', open('pack.toml').read()).group(1))")
 CLIENT_ZIP := $(PACK_NAME)-$(VERSION).zip
 
-.PHONY: up down restart logs console attach status update export release
+.PHONY: up down restart logs console attach status update export release test client
 
 # Levanta el servidor (build primero si hay cambios en el pack)
 up:
@@ -24,7 +25,7 @@ logs:
 
 # Consola interactiva del servidor (Ctrl+P Ctrl+Q para salir sin matar el server)
 console:
-	docker attach msmp-mc-1
+	docker attach ssmp-mc-1
 
 # Estado de los contenedores
 status:
@@ -51,6 +52,19 @@ release:
 	VERSION=$(VERSION) \
 	CLIENT_ZIP=$(CLIENT_ZIP) \
 	python3 scripts/cf_upload.py
+
+# Corre los tests de KubeJS (requiere: cd kubejs && npm install)
+test:
+	cd kubejs && npm test
+
+# Lanza el cliente (Prism Launcher, instancia PCF-SMP)
+# Sirve el pack localmente para que packwiz-installer sincronice los mods
+client:
+	@echo "Iniciando packwiz serve..."
+	@cd $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) && $(PACKWIZ) serve &
+	@sleep 1
+	$(PRISM) --launch PCF-SMP --show-window; \
+	pkill -f "packwiz serve" 2>/dev/null || true
 
 # Abre una shell en el contenedor del servidor
 shell:

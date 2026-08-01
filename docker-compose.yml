@@ -9,9 +9,9 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: NEOFORGE
-      VERSION: "1.21.1"
-      NEOFORGE_VERSION: "21.1.244"
-      PACKWIZ_URL: "https://raw.githubusercontent.com/eloircorona/msmp/main/pack.toml"
+      VERSION: "26.2"
+      NEOFORGE_VERSION: "26.2.0.40-beta"
+      PACKWIZ_URL: "https://raw.githubusercontent.com/eloircorona/pcf-smp/main/pack.toml"
 
       # Memory — ajusta según tu máquina (mínimo 3G para este pack)
       MEMORY: "4G"
@@ -25,7 +25,7 @@ services:
       SPAWN_PROTECTION: "0"
       ENABLE_WHITELIST: "false"
       ENFORCE_WHITELIST: "false"
-      MOTD: "MSMP — Testing Server"
+      MOTD: "PCF-SMP — Testing Server"
       ICON: ""
 
       # Ops — agrega tu username aquí
