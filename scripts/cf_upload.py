@@ -67,14 +67,8 @@ def build_server_zip():
     print(f"  Server pack: {SERVER_ZIP}")
 
 
-def cf_upload(zip_path, display_name, game_versions, changelog):
-    meta = json.dumps({
-        "changelog": changelog,
-        "changelogType": "markdown",
-        "displayName": display_name,
-        "releaseType": "release",
-        "gameVersions": game_versions,
-    })
+def cf_upload(zip_path, meta_dict):
+    meta = json.dumps(meta_dict)
     boundary = "----CurseFormBoundary"
     body = (
         f"--{boundary}\r\n"
@@ -97,7 +91,9 @@ def cf_upload(zip_path, display_name, game_versions, changelog):
     try:
         with urllib.request.urlopen(req) as r:
             resp = json.loads(r.read().decode())
-            print(f"  OK — file ID: {resp.get('id')}")
+            file_id = resp.get("id")
+            print(f"  OK — file ID: {file_id}")
+            return file_id
     except urllib.error.HTTPError as e:
         print(f"  ERROR {e.code}: {e.read().decode()}", file=sys.stderr)
         sys.exit(1)
@@ -118,10 +114,22 @@ def main():
     build_server_zip()
 
     print(f"\n[2/3] Subiendo client pack ({CLIENT_ZIP})...")
-    cf_upload(CLIENT_ZIP, f"PCF-SMP v{VERSION}", game_versions, changelog)
+    client_file_id = cf_upload(CLIENT_ZIP, {
+        "changelog": changelog,
+        "changelogType": "markdown",
+        "displayName": f"PCF-SMP v{VERSION}",
+        "releaseType": "release",
+        "gameVersions": game_versions,
+    })
 
-    print(f"\n[3/3] Subiendo server pack ({SERVER_ZIP})...")
-    cf_upload(SERVER_ZIP, f"PCF-SMP Server v{VERSION}", game_versions, changelog)
+    print(f"\n[3/3] Subiendo server pack como archivo adicional ({SERVER_ZIP})...")
+    cf_upload(SERVER_ZIP, {
+        "parentFileID": client_file_id,
+        "changelog": changelog,
+        "changelogType": "markdown",
+        "displayName": f"PCF-SMP Server v{VERSION}",
+        "releaseType": "release",
+    })
 
     print("\nDone.")
 
