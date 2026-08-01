@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.0](https://github.com/eloircorona/pcf-smp/compare/v1.2.0...v1.3.0) (2026-08-01)
+
+
+### Features
+
+* **mods:** add Fantasy's Furniture (+ 6 estilos + Decorations), Immersive Paintings, Rechiseled, Nether Portal Fix, Saros Road Signs, Crash Assistant
+
+### Chores
+
+* **mods:** migrate 23 mods de Modrinth a CurseForge por project/file ID (solo Entity Culling permanece en Modrinth)
+
 ## [1.2.0](https://github.com/eloircorona/msmp/compare/v1.1.0...v1.2.0) (2026-07-30)
 
 
