@@ -1,5 +1,7 @@
-PACKWIZ  := $(shell which packwiz 2>/dev/null || echo ~/.gvm/pkgsets/go1.23.5/global/bin/packwiz)
-VERSION  := $(shell cat version.txt | tr -d '[:space:]')
+PACKWIZ    := $(shell which packwiz 2>/dev/null || echo ~/.gvm/pkgsets/go1.23.5/global/bin/packwiz)
+VERSION    := $(shell cat version.txt | tr -d '[:space:]')
+PACK_NAME  := $(shell python3 -c "import re; print(re.search(r'name\s*=\s*\"(.+?)\"', open('pack.toml').read()).group(1))")
+CLIENT_ZIP := $(PACK_NAME)-$(VERSION).zip
 
 .PHONY: up down restart logs console attach status update export release
 
@@ -41,14 +43,13 @@ export:
 
 # Exporta y publica client + server pack en CurseForge
 release:
-	@echo "==> Exportando pack v$(VERSION)..."
+	@echo "==> Exportando pack v$(VERSION) -> $(CLIENT_ZIP)..."
 	$(PACKWIZ) curseforge export
-	@CLIENT_ZIP=$$(ls *.zip | grep -v server | head -1); \
-	echo "==> Subiendo a CurseForge (client + server)..."; \
-	CF_API_KEY=$$(orbit secret get CF_API_KEY) \
+	@echo "==> Subiendo a CurseForge (client + server)..."
+	@CF_API_KEY=$$(orbit secret get CF_API_KEY) \
 	CF_PROJECT_ID=$$(orbit secret get CF_PROJECT_ID) \
 	VERSION=$(VERSION) \
-	CLIENT_ZIP=$$CLIENT_ZIP \
+	CLIENT_ZIP=$(CLIENT_ZIP) \
 	python3 scripts/cf_upload.py
 
 # Abre una shell en el contenedor del servidor
