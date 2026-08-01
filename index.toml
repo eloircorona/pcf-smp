@@ -5,6 +5,10 @@ file = "CURSEFORGE.md"
 hash = "ae7bdbec447e9236e8face484d916ae70683f22d814ab20dab19f6ae3713ed2c"
 
 [[files]]
+file = "convert_to_curseforge.py"
+hash = "3dd5b22c96527aca6140620c28d0bc27364782fb890f33568fc492afd96c6446"
+
+[[files]]
 file = "kubejs/assets/msmp/blockstates/mesa_banco.json"
 hash = "35dd24c406dd11f235e3d5c75cf0d9e57cfc451c75e0c797b716038450e26d10"
 
@@ -121,93 +125,183 @@ file = "kubejs/startup_scripts/1_registry/items.js"
 hash = "f0f696c671d008e33087fb27b140c8620057e2a2fcc83f03696b2df8b8ff7d88"
 
 [[files]]
-file = "mods/appleskin.pw.toml"
-hash = "944104c0ced6f5d5a7dae365d0b76a86f13e99ccbf0f93d0fde609c64fac304f"
+file = "mods/apexcore.pw.toml"
+hash = "ca1cfb325c034da477414fb761025a04fae34c97b1aee429cf86b361232794d4"
 metafile = true
 
 [[files]]
-file = "mods/chunky.pw.toml"
-hash = "f2420bfbb87f2aab135fc2cb100521ae7f69e8794f2059878fb652a5b1f1c84e"
+file = "mods/appleskin.pw.toml"
+hash = "42786454eefc0f141c1a75d96900b57aef3616f558daf50ef74bd599ca5df145"
+metafile = true
+
+[[files]]
+file = "mods/balm.pw.toml"
+hash = "65c3597be7f5bb04212d06e46cc3f61da0de77833189d48cc2f8d521d126de53"
+metafile = true
+
+[[files]]
+file = "mods/chunky-pregenerator-forge.pw.toml"
+hash = "55e46e994051517ec92f1f0eac582b80f1ca2653c09fc8182729c5e02bed83ef"
 metafile = true
 
 [[files]]
 file = "mods/clumps.pw.toml"
-hash = "5397ce8e79e7bb26d0a902cadc632ea8ccbccc313dd2cacdd0238d058ed17b0a"
+hash = "05d025b87851c67e82d63c019a8daceae73b8c7a8717f22c3beb76bc99680784"
 metafile = true
 
 [[files]]
 file = "mods/corpse.pw.toml"
-hash = "221e70ebf84c5f30362a709c12fb20b1cae0b3c91366663a7326ce71720e24d9"
+hash = "dd3767338cb8f525141a09b445714fd08f4f888376ead6bf326d45d988c0c3ef"
+metafile = true
+
+[[files]]
+file = "mods/crash-assistant.pw.toml"
+hash = "41b880780bb70c93d46cefa790a105207327cd820f2cdc06a612cfbef8776131"
 metafile = true
 
 [[files]]
 file = "mods/darkcasino.pw.toml"
-hash = "16c2b55310b28d3442352490dea96a6080dd8efb7d91d92f3fbecc32ecdfcf25"
+hash = "3c4a57dbf11d61816e0f0403d4dc415e56c9d24de6733bc5cfe336b80732ed86"
 metafile = true
 
 [[files]]
 file = "mods/entityculling.pw.toml"
-hash = "e5e870e6af57706933a549c62a60d1caa4fad10636354c48abf183275391e5c4"
+hash = "ec31610fdefe5707e742157cda8c1e2c2a9a915cf1e8ff842fff1c33e8a2edcb"
 metafile = true
 
 [[files]]
-file = "mods/ferrite-core.pw.toml"
-hash = "ecd9e70faca5584f8cb488905c333f9eeef03193674f03692a7bb32f1283fcdc"
+file = "mods/fantasys-furniture-bone.pw.toml"
+hash = "151748631633fe6e6e0cac55d3a963751f54fbee88918a94daed33cd264b26e1"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture-decorations.pw.toml"
+hash = "9fe2c289a5fc95f0f8bf029617bafe77687302deb6d242f50404158e03eabc0b"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture-dunmer.pw.toml"
+hash = "26c036c5fc493de4220f96493c9258cbf6fd15731a24362c9555e74771361004"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture-necrolord.pw.toml"
+hash = "667defd039fa22b5bf0224833a820bd6a7d8b7dc47073dd09058f0c149332f6e"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture-nordic.pw.toml"
+hash = "993d230ae3554407c3845e2f9fbd23d6af9eb466a23d0852306eb58e99a332e4"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture-royal.pw.toml"
+hash = "c8b38b1dcdea82a6fa9f7cbf10a1f402a4610eb54652cb6bec854245f8d3dd47"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture-venthyr.pw.toml"
+hash = "dfb546fd9e1b26c9b9b84943bf4c478098a3fee5c75cb4cb20f4edfc124ba4d9"
+metafile = true
+
+[[files]]
+file = "mods/fantasys-furniture.pw.toml"
+hash = "b6618d2e7b425a1e8cd02849686bf682eaabc6aa346d71a595037887241303ac"
+metafile = true
+
+[[files]]
+file = "mods/ferritecore.pw.toml"
+hash = "c2d1674a4d1466e09946819d58436b555256613d2cbcb8f12e26d950bd76d8ef"
+metafile = true
+
+[[files]]
+file = "mods/fusion-connected-textures.pw.toml"
+hash = "3c3f9d7ab79cdb7009deb64fd66bf0cbad8ca6f2f1bdc129e82d9fbba68045a3"
+metafile = true
+
+[[files]]
+file = "mods/fzzy-config.pw.toml"
+hash = "079b9b7de33ec5da7b166f6ac6ec9c0d0335895923008b5282f782da81e01540"
 metafile = true
 
 [[files]]
 file = "mods/immediatelyfast.pw.toml"
-hash = "15c6bf8b93c2c40583fe429c4e250656e986307628cf69dab3b051b2aa236ea2"
+hash = "1a6591d197bd34bccd65cf88a5ae31492d83c6b553eea9659e07d2c80b3eed89"
+metafile = true
+
+[[files]]
+file = "mods/immersive-paintings.pw.toml"
+hash = "11aa73baf36dec424f8eda0e8e9f0b6382140d22316492179ce0424c901fc05d"
 metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "15f19049dfa034887f2b402b4da34eecffccb0e70eb9b3a7b112d0d5a4cb8337"
+hash = "47c21dcd3dffbce49d01b20a052ae14e7aafedbb3b64f33f9e279e4240ee220e"
+metafile = true
+
+[[files]]
+file = "mods/kotlinlangforge.pw.toml"
+hash = "38356ac61ddbfb892605aa0d10f5169db5cbbf75b7f9c5ada7ef373dd08cd469"
 metafile = true
 
 [[files]]
 file = "mods/lambdynamiclights.pw.toml"
-hash = "a6d53d9a312a3cb6554453eb73ecd152278f7be8d12e9a8db6126b0cef1d2b68"
+hash = "2939b25b0fbc7d98f131f84887710c688080f3c8a204133e3ce53a4e8a73ea0b"
 metafile = true
 
 [[files]]
 file = "mods/lithium.pw.toml"
-hash = "6c26b17b40a3d91c5a3043c987aa753faa2d3d13b6c20d319cbb9e04b59169cf"
+hash = "4c9becdad41e03b909d7a22493eb22c74ec00d532411e36249e35b9d3341b6a5"
 metafile = true
 
 [[files]]
 file = "mods/macaws-doors.pw.toml"
-hash = "99101648147f705e92c7821f04eef08d615f316099c054e852a3b6cd31de90e8"
+hash = "7f76caa390e35de6943cb6f95c581eb577cfd59ffa569d142701a4012e8232ee"
 metafile = true
 
 [[files]]
 file = "mods/macaws-furniture.pw.toml"
-hash = "601775f83729132263bca30d4d41d777439763f0fbc9dd76ac064a9896797603"
+hash = "cdf9513661de65881ad9094cddc09fad2fa61e5616861017da99a353a5ef1184"
 metafile = true
 
 [[files]]
 file = "mods/macaws-lights-and-lamps.pw.toml"
-hash = "bc364231fdfd5db771aa029953c25f4f676017c1791bdabf01ec1fb3de856a1d"
+hash = "207bf6d977898d74aa01cd2d47aaafbc542994790a6e3f4fc814843183e358eb"
 metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "2c1fbe2b5713a2900f413eb60d24226e885fcdf365c5043ffbca1439d9c82b74"
+hash = "f77005f5ab1ac9093bc780b3eeeece73b7f68acb39ca3edc1bbd16621a879f8d"
+metafile = true
+
+[[files]]
+file = "mods/netherportalfix.pw.toml"
+hash = "34d5b5834cba5780b8bfefa7f79e9f26e0bce2059ce65b8c1ce26330b1459741"
 metafile = true
 
 [[files]]
 file = "mods/open-parties-and-claims.pw.toml"
-hash = "c41a9ecf949c9b01bfcdbaf042517717247438344818648f05d397419ff84bf1"
+hash = "fa840337b7eaebad0135c9de58776da89eeb9e18ab3a576a6c6fd682cf2e8acb"
 metafile = true
 
 [[files]]
 file = "mods/plasmo-voice.pw.toml"
-hash = "58501fb14f3176a870ae399d3daa851e262bef158cbeaccb8d7e7d100bcc14ef"
+hash = "89d0df972a3e48a87100671c4e0affc7167c159419c38d412757d746015cef61"
+metafile = true
+
+[[files]]
+file = "mods/rechiseled.pw.toml"
+hash = "00dbbe36b8d6e2891fedbe6fdcc13533a5306c7d249e03340ee92db9f24297c1"
+metafile = true
+
+[[files]]
+file = "mods/saro-s-road-signs-mod.pw.toml"
+hash = "0fe3a9ea5f6a3df45f9aebe2601559bec76da4288c5f0f8342f624cd4a27841d"
 metafile = true
 
 [[files]]
 file = "mods/security-craft.pw.toml"
-hash = "54fff46aee28919926da0a86343d5314a5148f723a65fa8dc8285c3c77225ac7"
+hash = "ccab957c43d33091ed7051acc9fc9cdedb72a2d44a8bf632e00dedb5b6f9d7b4"
 metafile = true
 
 [[files]]
@@ -217,30 +311,40 @@ metafile = true
 
 [[files]]
 file = "mods/sophisticated-backpacks.pw.toml"
-hash = "3003b0e0f7bd034832499f2a9bd352d4fca5097dd437e3fdd20d85af4a03f558"
+hash = "a9a3d63054afffe7c8c65af07890d372cec58657212f59448b0cb9b00d38928e"
 metafile = true
 
 [[files]]
 file = "mods/sophisticated-core.pw.toml"
-hash = "d83d07c158c99982c5c115366e95931e1705d5531a197dbe4d742eb95dfd4253"
+hash = "adbf30d967c59ccdd8007e32b6f45fb64e389d26db8a6c15ac00453a8fa4b144"
 metafile = true
 
 [[files]]
 file = "mods/sound-physics-remastered.pw.toml"
-hash = "56cbcd79f1d444ab733aa39e4835a970fde9d8687d050defdcbc44b6d9368326"
+hash = "5e395ac5d45290811adbea2735fb3d666c7514d7869d1a605c36bba7d17b802b"
 metafile = true
 
 [[files]]
-file = "mods/tpa.pw.toml"
-hash = "7da35efc3b087e12b6f9759973c539697020b2a70fb2942ffe1054f741b10060"
+file = "mods/supermartijn642s-config-lib.pw.toml"
+hash = "f0ed3543c22912b36d72d8a71fd64370c8cd668511f49b0b62f09a60826a2726"
+metafile = true
+
+[[files]]
+file = "mods/supermartijn642s-core-lib.pw.toml"
+hash = "df3ce02226a41fc0da33436ca9386c260c123e0564e3d1a23a58a34734310349"
+metafile = true
+
+[[files]]
+file = "mods/teletransportation-accept-tpa.pw.toml"
+hash = "34f6cfff487f084462a99d4d9595fff81f4021e4ce1003ae44642a0eaf46eb9c"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "8f988e40608b55e0ceaf090175572ac9a021fdb83bec8610a8e029fbf8b66a73"
+hash = "f2f3c8e8e18b496c8bc66fe839d5b59cbb6bc07283d7170ca527244452575586"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-world-map.pw.toml"
-hash = "0d5072ba6ce891c8b0b40d0c6489cc3a3ca7d6c8fda71fa1666ef3f21e9773dd"
+hash = "f4da0c1e26af8a8aa181ec9cf2b8d433ffef31edddd3eab4f6b1d50d6723e121"
 metafile = true

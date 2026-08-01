@@ -3,11 +3,11 @@ filename = "xaerominimap-neoforge-26.2-26.4.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/1bokaNcj/versions/IqOn6XCo/xaerominimap-neoforge-26.2-26.4.2.jar"
-hash-format = "sha512"
-hash = "62c9515cac9019e1ce85c6e21f316d8395d745dfef23e22a0236c14fe1a3afb8c169d4d5778d5e4b6b03a0aeb03d46797e6dc69d63afcf4a3ce59f1aa28f605a"
+hash-format = "sha1"
+hash = "fb81715a33cb53b80e9de01fc5333578f7f63b49"
+mode = "metadata:curseforge"
 
 [update]
-[update.modrinth]
-mod-id = "1bokaNcj"
-version = "IqOn6XCo"
+[update.curseforge]
+file-id = 8449863
+project-id = 263420

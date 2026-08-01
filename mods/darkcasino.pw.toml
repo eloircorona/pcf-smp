@@ -1,13 +1,13 @@
-name = "DarkCasino"
+name = "DarkCasino - RPG Casino"
 filename = "darkcasino-neoforge-26.1-1.0.8.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/RuGcLu3t/versions/pkCZ1y2y/darkcasino-neoforge-26.1-1.0.8.jar"
-hash-format = "sha512"
-hash = "b00a36401772fa1cc737c8a528b915d7eaa45fc9d21dcaa471d4b229fa7ff8ec4db54433b4b0ea19ed99a1ec50e48b335cd36fe44a669c10ac52038d3f8641db"
+hash-format = "sha1"
+hash = "3c95bd22c063e76c1319bc6506403aeb90ba3a8c"
+mode = "metadata:curseforge"
 
 [update]
-[update.modrinth]
-mod-id = "RuGcLu3t"
-version = "pkCZ1y2y"
+[update.curseforge]
+file-id = 8003400
+project-id = 1325240

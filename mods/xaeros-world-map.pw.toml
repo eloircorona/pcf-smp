@@ -3,11 +3,11 @@ filename = "xaeroworldmap-neoforge-26.2-1.44.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/NcUtCpym/versions/pKatKnls/xaeroworldmap-neoforge-26.2-1.44.2.jar"
-hash-format = "sha512"
-hash = "d74fe4155e0b5b9aa4d6d51933dbae3043a5e6550f130e13cfc79af387d9f49c2497a58c060d25e420667cff20cd384bdf3f8c5afc3ad4fc189a9e984ae465d6"
+hash-format = "sha1"
+hash = "37e2b553177e6bcd0ed7799208c620d18c37bbed"
+mode = "metadata:curseforge"
 
 [update]
-[update.modrinth]
-mod-id = "NcUtCpym"
-version = "pKatKnls"
+[update.curseforge]
+file-id = 8449957
+project-id = 317780

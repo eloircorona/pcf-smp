@@ -3,11 +3,11 @@ filename = "sophisticatedbackpacks-26.2-3.25.83.2018.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/TyCTlI4b/versions/zWHF9KKS/sophisticatedbackpacks-26.2-3.25.83.2018.jar"
-hash-format = "sha512"
-hash = "d4015b44d4799c516a2d4ba6fda95d20cf2aa99f5532537e3397ba032981cbd29e68b54cca0359d2bc3266858d55f3c4427ebb49e6f92ba1541d63ec1cbdc988"
+hash-format = "sha1"
+hash = "127c32ce3925f3e506f055d61b5a6055b7aeae1c"
+mode = "metadata:curseforge"
 
 [update]
-[update.modrinth]
-mod-id = "TyCTlI4b"
-version = "zWHF9KKS"
+[update.curseforge]
+file-id = 8503067
+project-id = 422301

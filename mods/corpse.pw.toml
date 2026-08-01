@@ -3,11 +3,11 @@ filename = "corpse-neoforge-1.1.18+26.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/WrpuIfhw/versions/eiYLFdIl/corpse-neoforge-1.1.18%2B26.2.jar"
-hash-format = "sha512"
-hash = "f1a10fe79703d3e18d6cad6624b59cbf5ed55b4cef2557576332933aa3c007201ea6b5a17a719910f4860a7b453bffe1841c451d66bfa1db9ce1fb65eba52fc0"
+hash-format = "sha1"
+hash = "dae3aa3028d847adb5b8ec0d10ad5c11e88f878b"
+mode = "metadata:curseforge"
 
 [update]
-[update.modrinth]
-mod-id = "WrpuIfhw"
-version = "eiYLFdIl"
+[update.curseforge]
+file-id = 8531758
+project-id = 316582

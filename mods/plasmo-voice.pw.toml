@@ -3,11 +3,11 @@ filename = "plasmovoice-neoforge-26.2-2.1.13.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/1bZhdhsH/versions/Wq2hKmnW/plasmovoice-neoforge-26.2-2.1.13.jar"
-hash-format = "sha512"
-hash = "5a1601cf02d2b904c0dd7bcddfe1b7e469c3b33df20975fb0903b93f5dfc8f37515d2652a34311c3a3922340a07076860fb20cc3bd0f9e1e8cb894b95fa452a1"
+hash-format = "sha1"
+hash = "1dc21b93ec3554224750afa7197970944e8403aa"
+mode = "metadata:curseforge"
 
 [update]
-[update.modrinth]
-mod-id = "1bZhdhsH"
-version = "Wq2hKmnW"
+[update.curseforge]
+file-id = 8310407
+project-id = 467028
