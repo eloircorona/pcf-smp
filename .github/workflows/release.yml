@@ -45,12 +45,57 @@ jobs:
       - name: Install packwiz
         run: go install github.com/packwiz/packwiz@latest
 
-      - name: Export CurseForge pack
+      - name: Export CurseForge pack (client)
         run: packwiz curseforge export
 
       - name: Find exported zip
         id: zip
         run: echo "path=$(ls *.zip | head -1)" >> $GITHUB_OUTPUT
+
+      - name: Build server pack
+        run: |
+          CLIENT_ZIP="${{ steps.zip.outputs.path }}"
+          SERVER_ZIP="${CLIENT_ZIP%.zip}-server.zip"
+
+          # Obtener project IDs de mods client-only desde los .pw.toml
+          CLIENT_IDS=$(python3 -c "
+          import os, re
+          ids = []
+          for f in os.listdir('mods'):
+              if not f.endswith('.pw.toml'):
+                  continue
+              content = open(f'mods/{f}').read()
+              if 'side = \"client\"' not in content:
+                  continue
+              m = re.search(r'project-id\s*=\s*(\d+)', content)
+              if m:
+                  ids.append(int(m.group(1)))
+          print(','.join(map(str, ids)))
+          ")
+
+          python3 -c "
+          import zipfile, json, sys
+
+          client_ids = set(map(int, '${CLIENT_IDS}'.split(','))) if '${CLIENT_IDS}' else set()
+          client_zip = '${CLIENT_ZIP}'
+          server_zip = '${SERVER_ZIP}'
+
+          with zipfile.ZipFile(client_zip, 'r') as zin, zipfile.ZipFile(server_zip, 'w', zipfile.ZIP_DEFLATED) as zout:
+              for item in zin.infolist():
+                  data = zin.read(item.filename)
+                  if item.filename == 'manifest.json':
+                      manifest = json.loads(data)
+                      manifest['files'] = [
+                          f for f in manifest['files']
+                          if f.get('projectID') not in client_ids
+                      ]
+                      manifest['name'] = manifest.get('name', 'PCF-SMP') + ' Server'
+                      data = json.dumps(manifest, indent=2).encode()
+                  zout.writestr(item, data)
+          print('Server pack created:', server_zip)
+          "
+          echo "server_zip=$SERVER_ZIP" >> $GITHUB_OUTPUT
+        id: server_zip
 
       - name: Upload to CurseForge
         env:
@@ -163,6 +208,96 @@ jobs:
 
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "Upload failed with status $HTTP_STATUS"
+            exit 1
+          fi
+
+      - name: Upload server pack to CurseForge
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_PROJECT_ID: ${{ secrets.CF_PROJECT_ID }}
+          VERSION: ${{ needs.release-please.outputs.version || github.event.inputs.version }}
+        run: |
+          SERVER_ZIP="${{ steps.server_zip.outputs.server_zip }}"
+
+          METADATA=$(python3 -c "
+          import json, os, urllib.request
+
+          cf_api_key = os.environ.get('CF_API_KEY')
+          version = os.environ.get('VERSION')
+
+          minecraft_ver = '26.2'
+          if os.path.exists('pack.toml'):
+              with open('pack.toml', 'r') as f:
+                  for line in f:
+                      if 'minecraft =' in line:
+                          minecraft_ver = line.split('=')[1].strip().strip('\"').strip(\"'\")
+
+          req_types = urllib.request.Request(
+              'https://minecraft.curseforge.com/api/game/version-types',
+              headers={'X-Api-Token': cf_api_key}
+          )
+          try:
+              with urllib.request.urlopen(req_types) as response:
+                  version_types = json.loads(response.read().decode())
+          except:
+              version_types = []
+
+          valid_type_ids = set()
+          for vt in version_types:
+              t_id = vt.get('id')
+              t_name = vt.get('name', '').lower()
+              exclude = ['bukkit','spigot','paper','bedrock','pocket','xbox','ps4','switch','ios','android','purpur','velocity','bungeecord']
+              if not any(k in t_name for k in exclude):
+                  valid_type_ids.add(t_id)
+
+          req_versions = urllib.request.Request(
+              'https://minecraft.curseforge.com/api/game/versions',
+              headers={'X-Api-Token': cf_api_key}
+          )
+          try:
+              with urllib.request.urlopen(req_versions) as response:
+                  versions = json.loads(response.read().decode())
+          except:
+              versions = []
+
+          mc_id = None
+          neoforge_id = None
+          for v in versions:
+              type_id = v.get('gameVersionTypeID')
+              if type_id not in valid_type_ids:
+                  continue
+              name = v.get('name', '')
+              slug = v.get('slug', '')
+              if name == minecraft_ver:
+                  mc_id = v.get('id')
+              if slug == 'neoforge' or name == 'NeoForge':
+                  neoforge_id = v.get('id')
+
+          game_versions = [x for x in [mc_id, neoforge_id] if x is not None]
+          changelog = open('CHANGELOG.md').read() if os.path.exists('CHANGELOG.md') else 'See GitHub releases.'
+          meta = {
+              'changelog': changelog,
+              'changelogType': 'markdown',
+              'displayName': f'PCF-SMP Server v{version}',
+              'releaseType': 'release',
+              'gameVersions': game_versions
+          }
+          print(json.dumps(meta))
+          ")
+
+          HTTP_STATUS=$(curl -s \
+            -H "X-Api-Token: $CF_API_KEY" \
+            -F "metadata=$METADATA;type=application/json" \
+            -F "file=@$SERVER_ZIP" \
+            -o /tmp/cf_server_response.json \
+            -w "%{http_code}" \
+            "https://minecraft.curseforge.com/api/projects/$CF_PROJECT_ID/upload-file")
+
+          echo "CurseForge server response (HTTP $HTTP_STATUS):"
+          cat /tmp/cf_server_response.json
+
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "Server upload failed with status $HTTP_STATUS"
             exit 1
           fi
 
