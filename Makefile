@@ -4,7 +4,7 @@ VERSION    := $(shell cat version.txt | tr -d '[:space:]')
 PACK_NAME  := $(shell python3 -c "import re; print(re.search(r'name\s*=\s*\"(.+?)\"', open('pack.toml').read()).group(1))")
 CLIENT_ZIP := $(PACK_NAME)-$(VERSION).zip
 
-.PHONY: up down restart logs console attach status update export release test client
+.PHONY: up down restart reset logs console attach status update export release test client
 
 # Levanta el servidor (build primero si hay cambios en el pack)
 up:
@@ -18,6 +18,12 @@ down:
 # Reinicia solo el servidor de Minecraft (útil tras actualizar mods)
 restart:
 	docker compose restart mc
+
+# Reinicio limpio: borra el volumen y vuelve a instalar todo desde el pack
+reset:
+	docker compose down -v
+	docker compose up -d
+	@echo "Servidor reiniciando desde cero. Usa 'make logs' para ver el progreso."
 
 # Logs en tiempo real
 logs:
