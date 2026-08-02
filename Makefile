@@ -60,11 +60,14 @@ test:
 # Lanza el cliente (Prism Launcher, instancia PCF-SMP)
 # Sirve el pack localmente para que packwiz-installer sincronice los mods
 client:
-	@echo "Iniciando packwiz serve..."
+	@echo "Matando cualquier packwiz serve previo..."
+	@pkill -f "[p]ackwiz serve" 2>/dev/null || true
+	@sleep 0.5
+	@echo "Iniciando packwiz serve desde $(dir $(abspath $(lastword $(MAKEFILE_LIST))))..."
 	@cd $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) && $(PACKWIZ) serve &
 	@sleep 1
 	$(PRISM) --launch PCF-SMP --show-window; \
-	pkill -f "packwiz serve" 2>/dev/null || true
+	pkill -f "[p]ackwiz serve" 2>/dev/null || true
 
 # Abre una shell en el contenedor del servidor
 shell:

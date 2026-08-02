@@ -295,16 +295,6 @@ hash = "ccab957c43d33091ed7051acc9fc9cdedb72a2d44a8bf632e00dedb5b6f9d7b4"
 metafile = true
 
 [[files]]
-file = "mods/sophisticated-backpacks.pw.toml"
-hash = "a9a3d63054afffe7c8c65af07890d372cec58657212f59448b0cb9b00d38928e"
-metafile = true
-
-[[files]]
-file = "mods/sophisticated-core.pw.toml"
-hash = "adbf30d967c59ccdd8007e32b6f45fb64e389d26db8a6c15ac00453a8fa4b144"
-metafile = true
-
-[[files]]
 file = "mods/sound-physics-remastered.pw.toml"
 hash = "50abb546405774df1e4d05c4821eceba1f1e6930897a7c533ebe36e6945f7aed"
 metafile = true
@@ -322,6 +312,11 @@ metafile = true
 [[files]]
 file = "mods/teletransportation-accept-tpa.pw.toml"
 hash = "34f6cfff487f084462a99d4d9595fff81f4021e4ce1003ae44642a0eaf46eb9c"
+metafile = true
+
+[[files]]
+file = "mods/travelers-backpack.pw.toml"
+hash = "ca1f30b43614f22f07b3000bb723cc8fbd294c4b41a8524d6f7bd8916f99d9c5"
 metafile = true
 
 [[files]]

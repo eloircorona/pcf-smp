@@ -10,7 +10,7 @@ services:
       EULA: "TRUE"
       TYPE: NEOFORGE
       VERSION: "26.2"
-      NEOFORGE_VERSION: "26.2.0.40-beta"
+      NEOFORGE_VERSION: "26.2.0.38-beta"
       PACKWIZ_URL: "https://raw.githubusercontent.com/eloircorona/pcf-smp/main/pack.toml"
 
       # Memory — ajusta según tu máquina (mínimo 3G para este pack)
