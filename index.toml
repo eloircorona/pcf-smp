@@ -295,11 +295,6 @@ hash = "ccab957c43d33091ed7051acc9fc9cdedb72a2d44a8bf632e00dedb5b6f9d7b4"
 metafile = true
 
 [[files]]
-file = "mods/sodium.pw.toml"
-hash = "506bc0508c99130ba18933335e1349eb6d6980e7122e9ca9d14b047f2faad619"
-metafile = true
-
-[[files]]
 file = "mods/sophisticated-backpacks.pw.toml"
 hash = "a9a3d63054afffe7c8c65af07890d372cec58657212f59448b0cb9b00d38928e"
 metafile = true
