@@ -169,11 +169,6 @@ hash = "0fe3a9ea5f6a3df45f9aebe2601559bec76da4288c5f0f8342f624cd4a27841d"
 metafile = true
 
 [[files]]
-file = "mods/security-craft.pw.toml"
-hash = "ccab957c43d33091ed7051acc9fc9cdedb72a2d44a8bf632e00dedb5b6f9d7b4"
-metafile = true
-
-[[files]]
 file = "mods/shogi.pw.toml"
 hash = "a899faf10fa36427825d89b11fe2ac4dc308fa5e3dc7e67de512f342a05ad2bf"
 metafile = true
