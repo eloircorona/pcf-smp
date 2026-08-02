@@ -31,6 +31,11 @@ services:
       # Ops — agrega tu username aquí
       OPS: ""
 
+      # RCON — para enviar comandos desde la terminal
+      ENABLE_RCON: "true"
+      RCON_PORT: "25575"
+      RCON_PASSWORD: "local"
+
     volumes:
       - mc-data:/data
 

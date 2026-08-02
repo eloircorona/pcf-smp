@@ -89,6 +89,16 @@ hash = "c2d1674a4d1466e09946819d58436b555256613d2cbcb8f12e26d950bd76d8ef"
 metafile = true
 
 [[files]]
+file = "mods/ftb-essentials.pw.toml"
+hash = "d068a3ccad49b241bb13524fd96076d5f26f254e1ee2ab8432e8f0b31db0ea41"
+metafile = true
+
+[[files]]
+file = "mods/ftb-library-forge.pw.toml"
+hash = "868f7b6d9439905137ae87cffaa8311de01a405bea152d2c3b664764a2fd2fac"
+metafile = true
+
+[[files]]
 file = "mods/fusion-connected-textures.pw.toml"
 hash = "3c3f9d7ab79cdb7009deb64fd66bf0cbad8ca6f2f1bdc129e82d9fbba68045a3"
 metafile = true
@@ -186,11 +196,6 @@ metafile = true
 [[files]]
 file = "mods/supermartijn642s-core-lib.pw.toml"
 hash = "df3ce02226a41fc0da33436ca9386c260c123e0564e3d1a23a58a34734310349"
-metafile = true
-
-[[files]]
-file = "mods/teletransportation-accept-tpa.pw.toml"
-hash = "34f6cfff487f084462a99d4d9595fff81f4021e4ce1003ae44642a0eaf46eb9c"
 metafile = true
 
 [[files]]
