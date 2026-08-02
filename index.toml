@@ -44,11 +44,6 @@ hash = "f309222ca4a01b3075d272fd3181d07bfbeafacb4553df54e2f91d2e546890e6"
 metafile = true
 
 [[files]]
-file = "mods/darkcasino.pw.toml"
-hash = "3c4a57dbf11d61816e0f0403d4dc415e56c9d24de6733bc5cfe336b80732ed86"
-metafile = true
-
-[[files]]
 file = "mods/fantasys-furniture-bone.pw.toml"
 hash = "151748631633fe6e6e0cac55d3a963751f54fbee88918a94daed33cd264b26e1"
 metafile = true
