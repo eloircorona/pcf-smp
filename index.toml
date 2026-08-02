@@ -24,6 +24,11 @@ hash = "65c3597be7f5bb04212d06e46cc3f61da0de77833189d48cc2f8d521d126de53"
 metafile = true
 
 [[files]]
+file = "mods/camera-mod.pw.toml"
+hash = "fe08faf82ee20f8da7da94b2d9a009592c7886bcf6a2c24e2471998fd63e2b81"
+metafile = true
+
+[[files]]
 file = "mods/chunky-pregenerator-forge.pw.toml"
 hash = "55e46e994051517ec92f1f0eac582b80f1ca2653c09fc8182729c5e02bed83ef"
 metafile = true
@@ -41,6 +46,11 @@ metafile = true
 [[files]]
 file = "mods/crash-assistant.pw.toml"
 hash = "f309222ca4a01b3075d272fd3181d07bfbeafacb4553df54e2f91d2e546890e6"
+metafile = true
+
+[[files]]
+file = "mods/creativecore.pw.toml"
+hash = "113b26e0c32782b268b77fa3230584ab0590e552ab5254f21717ee55ceabc62c"
 metafile = true
 
 [[files]]
@@ -99,6 +109,11 @@ hash = "079b9b7de33ec5da7b166f6ac6ec9c0d0335895923008b5282f782da81e01540"
 metafile = true
 
 [[files]]
+file = "mods/geckolib.pw.toml"
+hash = "44c4ca2e71eb22d251ba1af5af3c4469f69005abc2147d5b73312ec885c5db6c"
+metafile = true
+
+[[files]]
 file = "mods/immediatelyfast.pw.toml"
 hash = "81dc02780e73af1d7b0a689f280ea3de1430177cce610cce78ac9ba83a9ecf27"
 metafile = true
@@ -111,6 +126,11 @@ metafile = true
 [[files]]
 file = "mods/jei.pw.toml"
 hash = "47c21dcd3dffbce49d01b20a052ae14e7aafedbb3b64f33f9e279e4240ee220e"
+metafile = true
+
+[[files]]
+file = "mods/just-enough-guns-for-neoforge.pw.toml"
+hash = "aeb5f411007c605a73b9d91dc3fd1d386d936b36d962825b9afdbce4ff341541"
 metafile = true
 
 [[files]]
@@ -156,6 +176,11 @@ metafile = true
 [[files]]
 file = "mods/plasmo-voice.pw.toml"
 hash = "89d0df972a3e48a87100671c4e0affc7167c159419c38d412757d746015cef61"
+metafile = true
+
+[[files]]
+file = "mods/playerrevive.pw.toml"
+hash = "39911facb3822f22285b572b03fdfe7c6668cf6a541e9ecc1db6d950e388cf45"
 metafile = true
 
 [[files]]

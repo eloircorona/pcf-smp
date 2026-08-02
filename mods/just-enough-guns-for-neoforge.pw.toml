@@ -1,0 +1,13 @@
+name = "Just Enough Guns New(unofficial port)"
+filename = "jegn-1.7.4+neoforge26.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "3d26755e789a18c8fc0c9df87989eae522403432"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8425471
+project-id = 1376657
