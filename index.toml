@@ -239,6 +239,10 @@ hash = "b4f453275202b8766b2996a13f98a481b5eb9b6b9b699bd7d0964b232dc9bd42"
 metafile = true
 
 [[files]]
+file = "overrides/config/jeg-client.toml"
+hash = "2a98c66d8af0d58e1ae28b19236612179aa5110c7f83f8cc15c6b3ddce7aee7c"
+
+[[files]]
 file = "overrides/config/jeg-server.toml"
 hash = "e55e119de21f5b4d1b94aaeee72fc89948d245f8cb9cd974af8f4d83a1fcb6a6"
 
