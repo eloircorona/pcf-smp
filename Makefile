@@ -3,8 +3,9 @@ PRISM      := flatpak run org.prismlauncher.PrismLauncher
 VERSION    := $(shell cat version.txt | tr -d '[:space:]')
 PACK_NAME  := $(shell python3 -c "import re; print(re.search(r'name\s*=\s*\"(.+?)\"', open('pack.toml').read()).group(1))")
 CLIENT_ZIP := $(PACK_NAME)-$(VERSION).zip
+bump       ?= patch
 
-.PHONY: up down restart reset logs console attach status update export release test client
+.PHONY: up down restart reset logs console attach status update export release test client server-op
 
 # Levanta el servidor (build primero si hay cambios en el pack)
 up:
@@ -49,14 +50,25 @@ export:
 	@echo "Pack exportado. Busca el .zip en el directorio actual."
 
 # Exporta y publica client + server pack en CurseForge
+# Bump automático: make release          → patch (1.3.0 → 1.3.1)
+#                  make release bump=minor → minor (1.3.0 → 1.4.0)
+#                  make release bump=major → major (1.3.0 → 2.0.0)
 release:
-	@echo "==> Exportando pack v$(VERSION) -> $(CLIENT_ZIP)..."
-	$(PACKWIZ) curseforge export
-	@echo "==> Subiendo a CurseForge (client + server)..."
-	@CF_API_KEY=$$(orbit secret get CF_API_KEY) \
+	@set -e; \
+	OLD=$$(cat version.txt | tr -d '[:space:]'); \
+	NEW=$$(python3 -c "import sys; v=sys.argv[1].split('.'); ma,mi,pa=int(v[0]),int(v[1]),int(v[2]); b=sys.argv[2]; t=(ma+1,0,0) if b=='major' else (ma,mi+1,0) if b=='minor' else (ma,mi,pa+1); print(f'{t[0]}.{t[1]}.{t[2]}')" $$OLD $(bump)); \
+	echo "==> Bumping version: $$OLD -> $$NEW ($(bump))"; \
+	printf '%s\n' $$NEW > version.txt; \
+	python3 -c "import re,sys; p=open('pack.toml').read(); p=re.sub(r'version = \"[^\"]+\"','version = \"'+sys.argv[1]+'\"',p); open('pack.toml','w').write(p)" $$NEW; \
+	$(PACKWIZ) refresh; \
+	ZIP=$(PACK_NAME)-$$NEW.zip; \
+	echo "==> Exportando pack v$$NEW -> $$ZIP..."; \
+	$(PACKWIZ) curseforge export; \
+	echo "==> Subiendo a CurseForge (client + server)..."; \
+	CF_API_KEY=$$(orbit secret get CF_API_KEY) \
 	CF_PROJECT_ID=$$(orbit secret get CF_PROJECT_ID) \
-	VERSION=$(VERSION) \
-	CLIENT_ZIP=$(CLIENT_ZIP) \
+	VERSION=$$NEW \
+	CLIENT_ZIP=$$ZIP \
 	python3 scripts/cf_upload.py
 
 # Corre los tests de KubeJS (requiere: cd kubejs && npm install)
@@ -74,6 +86,11 @@ client:
 	@sleep 1
 	$(PRISM) --launch PCF-SMP --show-window; \
 	pkill -f "[p]ackwiz serve" 2>/dev/null || true
+
+# Da permisos de operador a un jugador: make server-op name=<jugador>
+server-op:
+	@test -n "$(name)" || (echo "Uso: make server-op name=<jugador>" && exit 1)
+	docker compose exec mc rcon-cli op $(name)
 
 # Abre una shell en el contenedor del servidor
 shell:
