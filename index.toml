@@ -239,5 +239,9 @@ hash = "b4f453275202b8766b2996a13f98a481b5eb9b6b9b699bd7d0964b232dc9bd42"
 metafile = true
 
 [[files]]
+file = "overrides/config/jeg-server.toml"
+hash = "e55e119de21f5b4d1b94aaeee72fc89948d245f8cb9cd974af8f4d83a1fcb6a6"
+
+[[files]]
 file = "overrides/config/openpartiesandclaims-server.toml"
 hash = "2fa55a4e3e5cf8d3469b72ee21026c06ae29e99c94fa574bebac83f252a4a470"
